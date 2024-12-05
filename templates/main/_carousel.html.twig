@@ -1,0 +1,18 @@
+<div id="carousel" data-controller="carousel" data-carousel-active-index-value="0" class="relative overflow-hidden">
+    <div class="carousel-track flex transition-transform duration-500 ease-in-out h-[230px]">
+        {% for slide in slides %}
+            <div class="carousel-slide flex-none w-full" data-carousel-index="{{ loop.index }}">
+                <div class="flex items-center justify-center h-[230px] overflow-hidden">
+                    <img src="{{ asset(slide.image) }}" alt="Slide {{ loop.index }}" class="w-full">
+                </div>
+                <div class="absolute bottom-0 left-[{{ loop.index * 100 + 30}}px] text-white bg-black bg-opacity-50 w-full p-2" data-carousel-title>
+                    <h2>{{ slide.title }}</h2>
+                    <p>{{ slide.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Navigation -->
+    <button class="prev absolute top-1/2 left-2 -translate-y-1/2 bg-black text-white p-2" data-action="carousel#prev">❮</button>
+    <button class="next absolute top-1/2 right-2 -translate-y-1/2 bg-black text-white p-2" data-action="carousel#next">❯</button>
+</div>
