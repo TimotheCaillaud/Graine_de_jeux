@@ -1,0 +1,25 @@
+<div id="carousel" data-controller="carousel" data-carousel-active-index-value="1" class="relative overflow-hidden h-[258px]">
+    <div>
+        {% for slide in slides %}
+            <div class="flex-none w-full absolute inset-0 transition-opacity ease-in-out duration-700 {{ loop.index == 1 ? 'opacity-100' : 'opacity-0' }}" data-carousel-index="{{ loop.index }}" data-carousel-target="slide">
+                <div class="flex items-center justify-center h-full overflow-hidden">
+                    <img src="{{ asset(slide.image) }}" alt="Slide {{ loop.index }}" class="w-full brightness-[.65]">
+                </div>
+                <div class="absolute top-0 left-[{{ loop.index * 100 + 30 }}px] text-white text-center w-full p-2 font-bold" data-carousel-title>
+                    <h2>{{ slide.title }}</h2>
+                    <p>{{ slide.description }}</p>
+                </div>
+
+                {% if slide.buttonText is defined %}
+                    <div class="absolute bottom-2 text-white p-2 w-full text-right z-10" data-carousel-title>
+                        <a href="{{ slide.buttonHref }}" class="bg-[#ffe3ad] font-semibold text-black py-2 px-4 border border-[#ffe3ad] rounded">
+                            {{ slide.buttonText }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <button class="prev absolute top-1/2 left-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2" data-action="carousel#prev">❮</button>
+    <button class="next absolute top-1/2 right-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2" data-action="carousel#next">❯</button>
+</div>

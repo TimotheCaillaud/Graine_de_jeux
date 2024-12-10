@@ -1,32 +1,34 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from "@hotwired/stimulus";
 
-/*
-* The following line makes this controller "lazy": it won't be downloaded until needed
-* See https://github.com/symfony/stimulus-bridge#lazy-controllers
-*/
-/* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static values = { activeIndex: Number }
+    static targets = ["slide"];
 
     connect() {
-        this.slides = this.element.querySelectorAll('.carousel-slide');
-        this.update();
-    }
-
-    prev() {
-        this.activeIndexValue = (this.activeIndexValue - 1 + this.slides.length) % this.slides.length;
+        this.currentIndex = 0;
     }
 
     next() {
-        this.activeIndexValue = (this.activeIndexValue + 1) % this.slides.length;
+        this.hideSlide(this.currentIndex);
+        this.currentIndex = (this.currentIndex + 1) % this.slideTargets.length;
+        this.showSlide(this.currentIndex);
     }
 
-    update() {
-        const offset = -this.activeIndexValue * 100;
-        this.element.querySelector('.carousel-track').style.transform = `translateX(${offset}%)`;
+    prev() {
+        this.hideSlide(this.currentIndex);
+        this.currentIndex =
+            (this.currentIndex - 1 + this.slideTargets.length) % this.slideTargets.length;
+        this.showSlide(this.currentIndex);
     }
 
-    activeIndexValueChanged() {
-        this.update();
+    showSlide(index) {
+        const slide = this.slideTargets[index];
+        slide.classList.remove("opacity-0");
+        slide.classList.add("opacity-100");
+    }
+
+    hideSlide(index) {
+        const slide = this.slideTargets[index];
+        slide.classList.remove("opacity-100");
+        slide.classList.add("opacity-0");
     }
 }
