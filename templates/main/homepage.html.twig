@@ -4,63 +4,31 @@
 {% endblock %}
 
 {% block body %}
-    <main class="flex flex-col lg:flex-row p-5 ">
-        {% include "main/_carousel.html.twig" with {'slides': intro_slides} %}
-        <div class="flex flex-col gap-2 py-3">
-            <h1>Voici Graine de Jeux</h1>
-            <p class="font-bold">Graine de Jeux est un gîte ludique faisant partie de l'association des Ludogîtes. Nous nous sommes installés tous près du Puy-en-Velay, en plein coeur de la Haute-Loire</p>
-            <p>Le Ludogîte Graine de Jeux longe une petite rivière au pied du mont Denise et ses orgues basaltiques, il se situe à Espaly-Saint-Marcel, à deux pas de la belle ville du Puy-en-Velay, et proche de volcans, lacs, forêts et cascades.</p>
-        </div>
-        <div id="place" class="flex flex-col gap-2 py-3">
-            <h2>Le lieu</h2>
-            {% include "main/_carousel.html.twig" with {'slides': graine_de_jeux_slides} %}
-            <p>Graine de Jeux, c'est un gîte de 3 chambres et un studio ! Nous pouvons donc acceuillir un groupe de 8 personnes ou bien plusieurs petits groupes, afin de partager un repas, une soirée jeux et de belles conversations.</p>
-        </div>
-        <div id="games" class="flex flex-col gap-2 py-3">
-            <h2>La ludothèque</h2>
-            <img class="" src="{{ asset('images/ludotheque_piece.jpg') }}" alt="ludotheque canape">
-            <p>Mais c'est aussi une ludothèque de plus de 450 jeux qui raviront les enfants autant que les adultes. Visitez notre collection sur MyLudo pour les regarder plus en détails.
+    <main class="flex flex-col lg:flex-row">
+        {% include "components/_carousel_link_button.html.twig" with {'slides': intro_slides} %}
+        <div class="flex flex-col gap-2 py-3 px-5 text-justify">
+            <p class="font-bold">Nous sommes un gîte ludique faisant partie de l'association des
+                <a href="https://ludogite.fr/">Ludogîtes</a>. Nous nous sommes installés tout près du Puy-en-Velay, en plein coeur de la Haute-Loire.
             </p>
+
         </div>
-        <div id="nature" class="flex flex-col gap-2 py-3">
-            <h2>Les environs</h2>
-            {% include "main/_carousel.html.twig" with {'slides': around_slides} %}
-            <p>
-                Il y a beaucoup d'endroit à visiter dans la région, que vous soyer amoureux de nature, avec lac, cascade, site géologique, fôret ou amoureux des vieilles villes et des monuments historiques, cette région vous comblera de bonheur.<br>
-                <br>                    
-                Nous sommes :<br>
-                À 5km de la Pinatelle du Zouave<br>
-                À 16km de la Cascade de la Beaume<br>
-                À 25km du lac du bouchet<br>
-                À 30km des Orgues de Prades<br>
-                A 40km de la Passerelle des Gorges du Lignon<br>
-                <br>
-                A 1km du Puy-en-Velay<br>
-                À 14km du Chateau de Rochelambert<br>
-                À 40km de la Chaise-Dieu<br>
-                <br>
-                Sans oublier les grandes randonnées des environs:<br>
-                Chemin de Stevenson<br>
-                GR40<br>
-                Départ de St Jacques de Compostelle<br>
-                Et les plus petites:<br>
-                Le sentier des chibottes<br>
-                Les chemins oubliés du Meygal
-            </p>
-        </div>
-        <div id="events" class="flex flex-col gap-2 py-3">
+        {% include "main/_gite.html.twig" %}
+
+        {# Appareils de restauration conviviale (crêpes, raclette, fondues),
+                et prises RJ 45 dans toutes les pièces #}
+
+        {% include "components/_carousel_link_button.html.twig" with {'slides': graine_de_jeux_slides} %}
+        {% include "main/_lieu.html.twig" %}
+        {% include "main/_ludotheque.html.twig" %}
+        {# {% include "main/_activites.html.twig" %} #}
+
+
+        {# <div id="events" class="flex flex-col gap-2 py-3">
             <h2>Les évènements</h2>
-            {% include "main/_carousel.html.twig" with {'slides': events_slides} %}
+            {% include "components/_carousel_link_button.html.twig" with {'slides': events_slides} %}
             <p>Parler des évènements</p>
-        </div>
-        <div id="ludogite" class="flex flex-col gap-2 py-3">
-            <div class="flex gap-2 items-center">
-                <h2>Le label Ludogîte</h2>
-                <img class="h-[32px]" src="{{ asset('images/ludogite-logo.png') }}" alt="ludogite logo">
-            </div>
-            <p>Un <strong>ludogîte</strong>, c'est à la fois <strong>une ludothèque</strong> et <strong>un gîte</strong>. Les <strong>ludogîtes</strong> ont été créés par des passionnés de jeux de société, souvent collectionneurs, qui ont souhaité mettre leur passion à disposition des locataires du lieu de vacances qu'ils ont créé. Y séjourner est une expérience extraordinaire. Les <strong>ludogîtes</strong> sont situés dans toute la France. Ils peuvent accueillir des familles ou des groupes de toutes tailles pour des vacances ou des weekends inoubliables. À ce jour, 13 ludogîtes vous accueillent et 2 autres ouvriront bientôt.
-                <a href="https://ludogite.fr/">www.ludogite.fr</a>
-            </p>
-        </div>
+        </div> #}
+        {% include "main/_ludogite.html.twig" %}
+
     </main>
 {% endblock %}
