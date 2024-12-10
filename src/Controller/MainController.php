@@ -14,14 +14,16 @@ class MainController extends AbstractController
 
         // Simulate adding a new slide
         $intro_slides = [
-            ['image' => 'images/ludotheque_canape.jpg', 'title' => 'Slide 1', 'description' => ''],
-            ['image' => 'images/ludotheque_piece.jpg', 'title' => 'Slide 2', 'description' => ''],
+            ['image' => 'images/graine-de-jeux-loft.jpg', 'title' => 'Graine de Jeux', 'description' => 'description lieu', 'buttonHref' => '#LIEU', 'buttonText' => 'Découvrir le lieu'],
+            ['image' => 'images/g2j_entree.jpg', 'title' => 'Un cadre magnifique mes chéries', 'description' => 'description gite', 'buttonHref' => '#GITE', 'buttonText' => 'Découvrir le Gîte'],
+            ['image' => 'images/ludotheque_piece.jpg', 'title' => 'La Ludothèque', 'description' => 'Un espace amménagé autour d\'une table de jeux', 'buttonHref' => '#LUDOTHEQUE', 'buttonText' => 'Découvrir les jeux'],
+            ['image' => 'images/g2j_orgues_zoom.jpg', 'title' => 'Activités et loisirs', 'description' => 'description nature', 'buttonHref' => '#LOISIRS', 'buttonText' => 'Découvrir les alentours'],
         ];
 
         $graine_de_jeux_slides = [
             ['image' => 'images/graine-de-jeux-loft.jpg', 'title' => 'Loft', 'description' => ''],
             ['image' => 'images/graine-de-jeux-riviere.jpg', 'title' => 'Rivière', 'description' => 'Parfait pour une baignade'],
-            ['image' => 'images/ludotheque_canape.jpg', 'title' => '', 'description' => ''],
+            ['image' => 'images/ludotheque_canape.jpg', 'title' => 'L\'entrée', 'description' => 'Idéal pour se poser'],
             ['image' => 'images/graine-de-jeux-neige.jpg', 'title' => 'Vue sous la neige', 'description' => ''], // New slide
         ];
 
